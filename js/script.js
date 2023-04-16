@@ -58,7 +58,7 @@ function createCard(cat, el = box) {
     })
     
     //Добавляем слушатель "Просмотр" при нажатии на кнопку
-    let buttonShow = document.createElement("button")
+    const buttonShow = document.createElement("button")
     const buttonShowI = document.createElement("i");
     buttonShow.append(buttonShowI)
     buttonShowI.className = "fa-sharp fa-regular fa-eye"
@@ -98,18 +98,6 @@ function deleteCard(id, el) {
                 }
             })
     }
-}
-
-//Функция добавления карточки
-function addCat(cat) {
-    fetch(path + "/add", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(cat)
-    })
-    .then(res => res.json())
 }
 
 //Проверка наличия котов в LS
@@ -183,7 +171,7 @@ function showModal(el) {
     })
 
     //Добавляем "Редактировать" при нажатии на кнопку
-    let buttonEdit = document.createElement("button")
+    const buttonEdit = document.createElement("button")
     buttonEdit.setAttribute("type", "submit")
     buttonEdit.className = "btn"
     const buttonEditI = document.createElement("i")

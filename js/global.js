@@ -6,8 +6,6 @@ const mdBox = document.querySelector(".modal-container");
 const mdClose = mdBox.querySelector(".modal-close");
 
 const addForm = document.forms.add;
-const mdShow = mdBox.querySelector("#showCat");
-
 
 //Информация внутри модального окна Просмотра
 function getAgeString(age) {
@@ -19,6 +17,7 @@ function getAgeString(age) {
         return age + ' лет';
     }
 }
+
 const constModalShow = (thisCard) => `
         <div class="cat-text">
             <h2>${thisCard.name}</h2>
@@ -29,9 +28,12 @@ const constModalShow = (thisCard) => `
 `
 
 //Добавляем окно для ввода логина пользователя
+
 let user = localStorage.getItem("catLS"); // имя пользователя
+
 if (!user) {
     user = prompt("Ваше уникальное имя: ", "SergeyShD");
+    localStorage.setItem("catLS", user);
 }
 
 const path = `https://cats.petiteweb.dev/api/single/${user}`;

@@ -35,9 +35,9 @@ function editModal(el){
     //Навешиваем слушатель на отправку формы
     editForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        let body = {};
+        const body = {};
         for (let i = 0; i < editForm.elements.length; i++) {
-            let inp = editForm.elements[i];
+            const inp = editForm.elements[i];
             if (inp.name) {
                 if (inp.type === "checkbox") {
                     body[inp.name] = inp.checked;
@@ -57,7 +57,7 @@ function editModal(el){
         .then(data => {
             if (data.message.includes("успешно")) {
                 cats = cats.map(cat => {
-                    if (cat.id === body.id) {
+                    if (+cat.id === +body.id) {
                         const modalShow = document.querySelector(".modalShow-container").querySelector(".cat-text")
                         modalShow.innerHTML = constModalShow(body)
                         return body;
